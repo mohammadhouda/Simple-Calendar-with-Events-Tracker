@@ -36,11 +36,11 @@ function renderCalendar() {
   headDate.innerText = `${months[currentMonth]} ${currentYear}`;
   let listDays = "";
 
-  for (i = firstDayofTheMonth; i > 0; i--) {
+  for (let i = firstDayofTheMonth; i > 0; i--) {
     listDays += `<li class="inactive">${lastDateofTheLastMonth - i + 1}</li> `;
   }
 
-  for (i = 1; i <= lastDateofTheMonth; i++) {
+  for (let i = 1; i <= lastDateofTheMonth; i++) {
     let isToday =
       i === date.getDate() &&
       currentMonth === date.getMonth() &&
@@ -51,7 +51,7 @@ function renderCalendar() {
     listDays += `<li class="${isToday}">${i}</li> `;
   }
 
-  for (i = lastDayOfTheMonth; i < 6; i++) {
+  for (let i = lastDayOfTheMonth; i < 6; i++) {
     listDays += `<li class="inactive">${i - lastDayOfTheMonth + 1}</li> `;
   }
 
@@ -61,12 +61,15 @@ function renderCalendar() {
 prevMonth.forEach((icon) => {
   icon.addEventListener("click", () => {
     currentMonth = icon.id === "prev" ? currentMonth - 1 : currentMonth + 1;
-    renderCalendar();
 
-    if (currentMonth < 0 || currentMonth > 11) {
-      date = new Date(currentYear, currentMonth);
-      currentYear = date.getFullYear();
-      currentMonth = date.getMonth();
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    } else if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
     }
+
+    renderCalendar();
   });
 });
