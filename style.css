@@ -1,124 +1,335 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-h2{
-margin: 0;
-}
+        h2 {
+            margin: 0;
+        }
 
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-body{
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 10%, rgba(148,187,233,1) 70%);
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Quicksand", sans-serif;
-}
+        body {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 10%, rgba(148, 187, 233, 1) 70%);
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-family: "Quicksand", sans-serif;
+            gap: 150px;
+        }
 
-.card {
-    width: 400px;
-    height: 350px;
-    border-radius: 7px;
-    background-color: white;
-    padding: 20px;
-    
-}
+        .card {
+            width: 400px;
+            height: 350px;
+            border-radius: 7px;
+            background-color: white;
+            padding: 20px;
+            position: relative;
+        }
 
-.heading{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-.heading .icons {
-    display: flex;
-    gap: 20px;
-    cursor: pointer;
-    
-}
+        .heading .icons {
+            display: flex;
+            gap: 20px;
+            cursor: pointer;
 
-.week-days-calendar{
-    display: flex;
-    margin: 20px 0 0 0;
-}
+        }
 
-.week-days-calendar li {
-    font-weight: 800;
-}
+        .week-days-calendar {
+            display: flex;
+            margin: 20px 0 0 0;
+        }
 
-.days-list {
-    display: flex;
-    flex-wrap: wrap;
-}
+        .week-days-calendar li {
+            font-weight: 800;
+        }
 
-.days-list li {
-    margin-top: 20px;
-    position: relative;
-    z-index: 5;
-}
+        .days-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-.week-days li {
-    width: calc(100% / 7);
-    text-align: center;
-}
+        .days-list li {
+            margin-top: 20px;
+            position: relative;
+            z-index: 5;
+        }
 
-.inactive {
-    color: #eee;
-    cursor:not-allowed;
-}
+        .week-days li {
+            width: calc(100% / 7);
+            text-align: center;
+        }
 
-.days-list li:not(.inactive){
-    cursor: pointer;
-}
+        .inactive {
+            color: #eee;
+            cursor: not-allowed;
+        }
+
+        .days-list li:not(.inactive) {
+            cursor: pointer;
+        }
 
 
-.days-list li:not(.inactive)::before {
-    position: absolute;
-    content: "";
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    background-color: #eee;
-    z-index: -1;
-    display: none;
-}
+        .days-list li:not(.inactive)::before {
+            position: absolute;
+            content: "";
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: #eee;
+            z-index: -1;
+            display: none;
+        }
 
-.days-list li:not(.inactive):hover::before{
-    display: block;
-}
+        .days-list li:not(.inactive):hover::before {
+            display: block;
+        }
 
-.active{
-    position: relative;
-    color: white;
-}
+        .active {
+            position: relative;
+            color: white;
+        }
 
-.active::after{
-    position: absolute;
-    content: "";
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    background-color: blueviolet;
-    z-index: -1;
-    
-    
-}
+        .active::after {
+            position: absolute;
+            content: "";
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: blueviolet;
+            z-index: -1;
+        }
 
+        .Eventboard {
+            position: relative;
+            width: 350px;
+            height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        .Eventboard .noeventsmessage {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .addEvent {
+            position: absolute;
+            bottom: 80px;
+            right: 30px;
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #eee;
+            transition: 0.3s;
+        }
+
+        .addEvent i {
+            font-size: 13px;
+            color: #eee;
+            transition: 0.3s;
+        }
+
+        .addEvent:hover {
+            border-color: blueviolet;
+        }
+
+        .addEvent:hover i {
+            color: blueviolet;
+        }
+
+        .closeEvent {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+        }
+
+        .closeEvent i {
+            font-size: 17px;
+        }
+
+        .titlehead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .addevent-wrapper {
+            position: absolute;
+            bottom: 0px;
+            left: 15px;
+            right: 15px;
+            max-height: 0;
+            transition: 0.5s;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .inputs input {
+            font-size: 15px;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid blueviolet;
+            outline: none;
+
+        }
+
+        .submitEvent {
+            width: 100%;
+            margin-top: 20px;
+            padding: 7px 0;
+            background-color: transparent;
+            border: 1px solid blueviolet;
+            cursor: pointer;
+            color: blueviolet;
+            font-weight: 900;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .submitEvent:hover {
+            background-color: blueviolet;
+            color: white;
+        }
+
+        .getdown {
+            bottom: 220px;
+        }
+
+        .inputField {
+            display: flex;
+            align-items: center;
+        }
+
+        .inputField input {
+            flex-grow: 1;
+        }
+
+        .changeColor {
+            position: relative;
+            color: white;
+        }
+
+        .changeColor::after {
+            position: absolute;
+            content: "";
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: rgb(87, 213, 87);
+            z-index: -1;
+        }
+
+        .todayBtn {
+            position: absolute;
+            bottom: -40px;
+            padding: 7px;
+            border-radius: 7px;
+            background-color: blueviolet;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .events {
+            margin-top: 20px;
+            max-height: 207px;
+            overflow-y: scroll;
+        }
+
+        .events .event {
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dates p {
+            font-size: 12px;
+            color: #a0a0a0;
+        }
+
+        .firstH {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .firstH button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .firstH button i {
+            font-size: 17px;
+            color: blueviolet;
+        }
+
+        .firstH p {
+            font-weight: 900;
+            margin-left: 5px;
+            overflow-wrap: anywhere;
+            width: 150px;
+        }
+
+        .event-day {
+            position: relative;
+            color: white;
+        }
+
+        .event-day::after {
+            position: absolute;
+            content: "";
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: orange;
+            z-index: -1;
+        }
