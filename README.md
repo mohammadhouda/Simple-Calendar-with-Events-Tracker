@@ -14,7 +14,7 @@ This is a simple calendar web application built using HTML, CSS, and JavaScript.
 1. Clone the repository or download the source code:
 
     ```bash
-    git clone https://github.com/your-username/calendar-web-app.git
+    git clone https://github.com/Mo2020s/calendar-web-app.git
     ```
 
 2. Open the project directory.
